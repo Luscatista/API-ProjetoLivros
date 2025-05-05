@@ -17,22 +17,9 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 252,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 331,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LivrosContext.cs",
-              "DocumentMoniker": "C:\\Users\\fic\\source\\repos\\API-ProjetoLivros\\API-ProjetoLivros\\Context\\LivrosContext.cs",
-              "RelativeDocumentMoniker": "API-ProjetoLivros\\Context\\LivrosContext.cs",
-              "ToolTip": "C:\\Users\\fic\\source\\repos\\API-ProjetoLivros\\API-ProjetoLivros\\Context\\LivrosContext.cs",
-              "RelativeToolTip": "API-ProjetoLivros\\Context\\LivrosContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T00:54:16.22Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -41,14 +28,23 @@
               "RelativeDocumentMoniker": "API-ProjetoLivros\\Program.cs",
               "ToolTip": "C:\\Users\\fic\\source\\repos\\API-ProjetoLivros\\API-ProjetoLivros\\Program.cs",
               "RelativeToolTip": "API-ProjetoLivros\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T00:50:20.926Z",
+              "WhenOpened": "2025-05-05T22:45:40.271Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LivrosContext.cs",
+              "DocumentMoniker": "C:\\Users\\fic\\source\\repos\\API-ProjetoLivros\\API-ProjetoLivros\\Context\\LivrosContext.cs",
+              "RelativeDocumentMoniker": "API-ProjetoLivros\\Context\\LivrosContext.cs",
+              "ToolTip": "C:\\Users\\fic\\source\\repos\\API-ProjetoLivros\\API-ProjetoLivros\\Context\\LivrosContext.cs",
+              "RelativeToolTip": "API-ProjetoLivros\\Context\\LivrosContext.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAqwHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T22:44:35.893Z",
+              "EditorCaption": ""
             }
           ]
         }

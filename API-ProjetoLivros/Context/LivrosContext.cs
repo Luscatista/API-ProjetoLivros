@@ -52,5 +52,62 @@ public class LivrosContext : DbContext
 
             }
         );
+
+        modelBuilder.Entity<TipoUsuario>(
+            entity =>
+            {
+                entity.HasKey(t => t.TipoUsuarioId);
+
+                entity.Property(t => t.DescricaoTipo).IsRequired().HasMaxLength(100).IsUnicode(false);
+
+                entity.HasIndex(t => t.DescricaoTipo).IsUnique();
+            }
+        );
+
+        modelBuilder.Entity<Livro>(
+            entity =>
+            {
+                entity.HasKey(l => l.LivroId);
+
+                entity.Property(l => l.Titulo).IsRequired().HasMaxLength(100).IsUnicode(false);
+
+                entity.HasIndex(l => l.Titulo).IsUnique();
+
+                entity.Property(l => l.Autor).IsRequired().HasMaxLength(100).IsUnicode(false);
+
+                entity.Property(l => l.Descricao).HasMaxLength(150).IsUnicode(false);
+
+                entity.Property(l => l.DataPublicacao).IsRequired();
+
+                entity.HasOne(c => c.Categoria).WithMany(l => l.Livros).HasForeignKey(u => u.CategoriaId).OnDelete(DeleteBehavior.Cascade);
+            }
+        );
+
+        modelBuilder.Entity<Categoria>(
+            entity =>
+            {
+                entity.HasKey(c => c.CategoriaId);
+
+                entity.Property(c => c.NomeCategoria).IsRequired().HasMaxLength(120).IsUnicode(false);
+
+                entity.HasIndex(c => c.NomeCategoria).IsUnique();
+            }
+        );
+
+        modelBuilder.Entity<Assinatura>(
+            entity =>
+            {
+                entity.HasKey(a => a.AssinaturaId);
+
+                entity.Property(a => a.DataInicio).IsRequired();
+
+                entity.Property(a => a.DataFim).IsRequired();
+
+                entity.Property(a => a.Status).IsRequired().HasMaxLength(20).IsUnicode(false);
+
+                //(entidade) TEM UMA (tabela relacional) COM MUITOS (tabela atual) ATRAVES (chave estrangeira)
+                entity.HasOne(a => a.Usuario).WithMany().HasForeignKey(u => u.UsuarioId).OnDelete(DeleteBehavior.Cascade);
+            }
+        );
     }
 }
