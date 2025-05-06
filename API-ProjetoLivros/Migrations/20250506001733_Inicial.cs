@@ -17,7 +17,7 @@ namespace API_ProjetoLivros.Migrations
                 {
                     CategoriaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NomeCategoria = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    NomeCategoria = table.Column<string>(type: "varchar(120)", unicode: false, maxLength: 120, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,7 +30,7 @@ namespace API_ProjetoLivros.Migrations
                 {
                     TipoUsuarioId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DescricaoTipo = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    DescricaoTipo = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,9 +43,9 @@ namespace API_ProjetoLivros.Migrations
                 {
                     LivroId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Autor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Descricao = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Titulo = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
+                    Autor = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
+                    Descricao = table.Column<string>(type: "varchar(150)", unicode: false, maxLength: 150, nullable: true),
                     DataPublicacao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -94,7 +94,7 @@ namespace API_ProjetoLivros.Migrations
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
                     DataInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataFim = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Status = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -113,9 +113,27 @@ namespace API_ProjetoLivros.Migrations
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Categorias_NomeCategoria",
+                table: "Categorias",
+                column: "NomeCategoria",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Livros_CategoriaId",
                 table: "Livros",
                 column: "CategoriaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Livros_Titulo",
+                table: "Livros",
+                column: "Titulo",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TiposUsuarios_DescricaoTipo",
+                table: "TiposUsuarios",
+                column: "DescricaoTipo",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_Email",

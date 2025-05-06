@@ -38,7 +38,9 @@ namespace API_ProjetoLivros.Migrations
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("int");
@@ -60,9 +62,14 @@ namespace API_ProjetoLivros.Migrations
 
                     b.Property<string>("NomeCategoria")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(120)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(120)");
 
                     b.HasKey("CategoriaId");
+
+                    b.HasIndex("NomeCategoria")
+                        .IsUnique();
 
                     b.ToTable("Categorias");
                 });
@@ -77,7 +84,9 @@ namespace API_ProjetoLivros.Migrations
 
                     b.Property<string>("Autor")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<int>("CategoriaId")
                         .HasColumnType("int");
@@ -86,15 +95,22 @@ namespace API_ProjetoLivros.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricao")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(150)");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("LivroId");
 
                     b.HasIndex("CategoriaId");
+
+                    b.HasIndex("Titulo")
+                        .IsUnique();
 
                     b.ToTable("Livros");
                 });
@@ -109,9 +125,14 @@ namespace API_ProjetoLivros.Migrations
 
                     b.Property<string>("DescricaoTipo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("TipoUsuarioId");
+
+                    b.HasIndex("DescricaoTipo")
+                        .IsUnique();
 
                     b.ToTable("TiposUsuarios");
                 });
